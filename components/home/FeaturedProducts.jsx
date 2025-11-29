@@ -114,7 +114,7 @@ export default function FeaturedProducts() {
           viewport={{ once: true }}
           className="text-center"
         >
-          <Link href={createPageUrl("Shop")}>
+          <Link href={createPageUrl("Projects")}>
             <button className="btn-primary group px-6 py-3 rounded-lg inline-flex items-center gap-2 shadow-lg shadow-[#80b635]/20">
               Ver todos los proyectos
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

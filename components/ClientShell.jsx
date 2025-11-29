@@ -110,16 +110,15 @@ export default function ClientShell({ children }) {
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <Link href={createPageUrl("Home")} className="flex items-center gap-2 group">
-              <div className="w-10 h-10 bg-[#80b635] rounded-lg flex items-center justify-center group-hover:bg-[#96cc47] transition-all">
-                <Sparkles className="w-6 h-6 text-white" />
-              </div>
-              <div>
-                <h1 className="text-xl font-bold text-[#05292e] group-hover:text-[#80b635] transition-colors">
-                  ALERNAL
-                </h1>
-                <p className="text-[10px] text-gray-600 -mt-1">Architecture of Tomorrow</p>
-              </div>
+            <Link
+              href={createPageUrl("Home")}
+              className="flex items-center gap-2 group"
+            >
+                <img
+                  src="/logo.png"
+                  alt="AlernAL Logo"
+                  className="w-40 h-full object-contain"
+                />
             </Link>
 
             {/* Desktop Navigation */}
@@ -150,7 +149,11 @@ export default function ClientShell({ children }) {
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="md:hidden p-2 text-[#05292e] hover:text-[#80b635] transition-colors"
             >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileMenuOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
             </button>
           </div>
         </div>
@@ -210,17 +213,22 @@ export default function ClientShell({ children }) {
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold text-[#05292e]">ALERNAL</h3>
-                  <p className="text-xs text-gray-600">Architecture of Tomorrow</p>
+                  <p className="text-xs text-gray-600">
+                    Architecture of Tomorrow
+                  </p>
                 </div>
               </div>
               <p className="text-gray-600 text-base mb-6">
-                Creamos tecnología que une lo imposible con lo necesario. Soluciones innovadoras que transforman el futuro digital.
+                Creamos tecnología que une lo imposible con lo necesario.
+                Soluciones innovadoras que transforman el futuro digital.
               </p>
             </div>
 
             {/* Navigation */}
             <div>
-              <h4 className="font-bold mb-4 text-[#05292e] uppercase text-sm tracking-wider">Navegación</h4>
+              <h4 className="font-bold mb-4 text-[#05292e] uppercase text-sm tracking-wider">
+                Navegación
+              </h4>
               <div className="space-y-3">
                 {navigationItems.map((item) => (
                   <Link
@@ -236,9 +244,15 @@ export default function ClientShell({ children }) {
 
             {/* Contact */}
             <div>
-              <h4 className="font-bold mb-4 text-[#05292e] uppercase text-sm tracking-wider">Contacto</h4>
+              <h4 className="font-bold mb-4 text-[#05292e] uppercase text-sm tracking-wider">
+                Contacto
+              </h4>
               <div className="space-y-3 text-sm text-gray-600">
-                <p>Colombia<br />Bogotá</p>
+                <p>
+                  Colombia
+                  <br />
+                  Bogotá
+                </p>
                 <p>info@alernal.co</p>
                 <p>+57 (300) 123-4567</p>
               </div>
@@ -247,11 +261,19 @@ export default function ClientShell({ children }) {
 
           {/* Bottom */}
           <div className="border-t border-[#80b635]/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-sm text-gray-600">© 2025 ALERNAL. Todos los derechos reservados.</p>
+            <p className="text-sm text-gray-600">
+              © 2025 ALERNAL. Todos los derechos reservados.
+            </p>
             <div className="flex gap-6 text-xs text-gray-600">
-              <a href="#" className="hover:text-[#80b635]">Política de Privacidad</a>
-              <a href="#" className="hover:text-[#80b635]">Términos</a>
-              <a href="#" className="hover:text-[#80b635]">Cookies</a>
+              <a href="#" className="hover:text-[#80b635]">
+                Política de Privacidad
+              </a>
+              <a href="#" className="hover:text-[#80b635]">
+                Términos
+              </a>
+              <a href="#" className="hover:text-[#80b635]">
+                Cookies
+              </a>
             </div>
           </div>
         </div>

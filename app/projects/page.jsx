@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { useState } from "react";
+import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ExternalLink, Code2, Sparkles, Filter } from "lucide-react";
 import ProjectCard from "@/components/projects/ProjectCard";
@@ -68,16 +68,16 @@ export default function Projects() {
   const [selectedCategory, setSelectedCategory] = useState("Todos");
   const [hoveredProject, setHoveredProject] = useState(null);
 
-  const filteredProjects = selectedCategory === "Todos" 
-    ? projects 
-    : projects.filter(p => p.category === selectedCategory);
+  const filteredProjects = selectedCategory === "Todos"
+    ? projects
+    : projects.filter((p) => p.category === selectedCategory);
 
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-20 px-6 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0f0d] via-[#121816] to-[#0a0f0d]" />
-        
+      <section className="relative py-20 px-6 overflow-hidden bg-white">
+        <div className="absolute inset-0 bg-gradient-to-b from-gray-50 via-white to-gray-50" />
+
         <div className="relative z-10 max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -91,16 +91,16 @@ export default function Projects() {
               transition={{ duration: 0.6 }}
               className="inline-block mb-6"
             >
-              <div className="w-16 h-16 mx-auto bg-gradient-to-br from-[#00ff88] to-[#00ccff] rounded-xl flex items-center justify-center floating glow-effect">
-                <Code2 className="w-8 h-8 text-[#0a0f0d]" />
+              <div className="w-16 h-16 mx-auto bg-[#80b635] rounded-xl flex items-center justify-center floating shadow-lg shadow-[#80b635]/20">
+                <Code2 className="w-8 h-8 text-white" />
               </div>
             </motion.div>
 
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Nuestros <span className="gradient-text">Proyectos</span>
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-[#05292e]">
+              Casos de <span className="text-[#80b635]">éxito</span>
             </h1>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Soluciones innovadoras que han transformado negocios en Colombia y el mundo
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Proyectos reales que han generado impacto tangible en nuestros clientes
             </p>
           </motion.div>
 
@@ -117,8 +117,8 @@ export default function Projects() {
                 onClick={() => setSelectedCategory(category)}
                 className={`px-6 py-3 rounded-lg font-medium transition-all ${
                   selectedCategory === category
-                    ? "bg-gradient-to-r from-[#00ff88] to-[#00ccff] text-[#0a0f0d] glow-effect"
-                    : "bg-[#121816] text-gray-300 hover:bg-[#1a201e] border border-[#00ff88]/20"
+                    ? "bg-[#80b635] text-white shadow-lg shadow-[#80b635]/30"
+                    : "bg-white text-gray-600 hover:bg-gray-50 border-2 border-gray-200 hover:border-gray-300"
                 }`}
               >
                 {category}
@@ -148,33 +148,32 @@ export default function Projects() {
               className="text-center py-20"
             >
               <Filter className="w-16 h-16 mx-auto mb-4 text-gray-600" />
-              <p className="text-xl text-gray-400">
-                No hay proyectos en esta categoría
-              </p>
+              <p className="text-xl text-gray-400">No hay proyectos en esta categoría</p>
             </motion.div>
           )}
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-6 bg-[#121816]">
+      <section className="py-20 px-6 bg-gray-50">
         <div className="max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="bg-gradient-to-br from-[#0a0f0d] to-[#121816] rounded-3xl p-12 border border-[#00ff88]/20 hover-glow text-center"
+            className="bg-white rounded-3xl p-12 border-2 border-gray-200 hover:border-[#80b635] hover:shadow-xl transition-all text-center"
           >
-            <Sparkles className="w-12 h-12 mx-auto mb-6 text-[#00ff88]" />
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              ¿Tienes un proyecto en mente?
+            <Sparkles className="w-12 h-12 mx-auto mb-6 text-[#80b635]" />
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#05292e]">
+              ¿Listo para el siguiente nivel?
             </h2>
-            <p className="text-xl text-gray-300 mb-8">
-              Trabajemos juntos para convertir tu visión en realidad
+            <p className="text-xl text-gray-600 mb-8">
+              Agenda una consulta gratuita y descubre cómo podemos ayudarte a alcanzar tus objetivos
             </p>
-            <button className="px-8 py-4 bg-gradient-to-r from-[#00ff88] to-[#00ccff] text-[#0a0f0d] rounded-lg font-semibold text-lg hover-glow transition-all inline-flex items-center gap-2">
-              Hablemos de tu proyecto
+
+            <button className="btn-primary px-8 py-4 rounded-lg font-semibold text-lg shadow-lg shadow-[#80b635]/20 inline-flex items-center gap-2">
+              Solicitar consultoría gratuita
               <ExternalLink className="w-5 h-5" />
             </button>
           </motion.div>

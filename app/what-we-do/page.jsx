@@ -1,6 +1,11 @@
 "use client";
+
+import React from "react";
 import { motion } from "framer-motion";
-import { Code2, Sparkles, Network, Lightbulb, Database, Cpu, Globe, Rocket } from "lucide-react";
+import { 
+  Code2, Sparkles, Network, Lightbulb, 
+  Rocket, Zap, Target 
+} from "lucide-react";
 import ServiceDetailCard from "@/components/whatwedo/ServiceDetailCard";
 
 const services = [
@@ -14,7 +19,7 @@ const services = [
       "Plataformas SaaS",
       "APIs y microservicios"
     ],
-    color: "from-[#00ff88] to-[#00ccaa]"
+    color: "from-[#80b635] to-[#00ccaa]"
   },
   {
     icon: Sparkles,
@@ -57,10 +62,11 @@ const services = [
 export default function WhatWeDo() {
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative py-20 px-6 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0f0d] via-[#121816] to-[#0a0f0d]" />
-        
+
+      {/* HERO */}
+      <section className="relative py-20 px-6 overflow-hidden bg-white">
+        <div className="absolute inset-0 bg-gradient-to-b from-gray-50 via-white to-gray-50" />
+
         <div className="relative z-10 max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -68,30 +74,32 @@ export default function WhatWeDo() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
+            {/* Icon */}
             <motion.div
               initial={{ scale: 0.5, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.6 }}
               className="inline-block mb-6"
             >
-              <div className="w-16 h-16 mx-auto bg-gradient-to-br from-[#00ff88] to-[#00ccff] rounded-xl flex items-center justify-center floating glow-effect">
-                <Rocket className="w-8 h-8 text-[#0a0f0d]" />
+              <div className="w-16 h-16 mx-auto bg-[#80b635] rounded-xl flex items-center justify-center shadow-lg shadow-[#80b635]/20">
+                <Rocket className="w-8 h-8 text-white" />
               </div>
             </motion.div>
 
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              <span className="gradient-text">Soluciones</span> que transforman
+            {/* Title */}
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-[#05292e]">
+              <span className="text-[#80b635]">Servicios</span> especializados
             </h1>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Unimos diferentes ideas, tecnologías y disciplinas para crear 
-              herramientas que resuelven problemas complejos de manera elegante
+
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Soluciones tecnológicas end-to-end diseñadas para impulsar el crecimiento de tu empresa
             </p>
           </motion.div>
 
-          {/* Services Grid */}
+          {/* Services */}
           <div className="grid md:grid-cols-2 gap-8">
             {services.map((service, index) => (
-              <ServiceDetailCard
+              <ServiceDetailCard 
                 key={service.title}
                 service={service}
                 index={index}
@@ -101,9 +109,10 @@ export default function WhatWeDo() {
         </div>
       </section>
 
-      {/* Technologies Section */}
-      <section className="py-20 px-6 bg-[#121816]">
+      {/* BENEFITS */}
+      <section className="py-20 px-6 bg-gray-50">
         <div className="max-w-7xl mx-auto">
+
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -111,40 +120,60 @@ export default function WhatWeDo() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-5xl font-bold mb-4">
-              <span className="gradient-text">Tecnologías</span> de vanguardia
+            <h2 className="text-3xl md:text-5xl font-bold mb-4 text-[#05292e]">
+              <span className="text-[#80b635]">Resultados</span> medibles
             </h2>
-            <p className="text-xl text-gray-300">
-              Trabajamos con las herramientas más avanzadas del ecosistema tecnológico
+            <p className="text-xl text-gray-600">
+              Lo que nuestros clientes logran al trabajar con nosotros
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-3 gap-8">
             {[
-              { icon: Database, name: "Cloud & DevOps" },
-              { icon: Cpu, name: "AI & ML" },
-              { icon: Globe, name: "Web & Mobile" },
-              { icon: Network, name: "APIs & Integration" }
-            ].map((tech, index) => (
+              { 
+                icon: Rocket, 
+                title: "Reducción de costos operativos", 
+                value: "40%",
+                desc: "Promedio de ahorro en procesos automatizados"
+              },
+              { 
+                icon: Zap, 
+                title: "Tiempo de salida al mercado", 
+                value: "60%",
+                desc: "Más rápido con metodología ágil"
+              },
+              { 
+                icon: Target, 
+                title: "Retorno de inversión", 
+                value: "12 meses",
+                desc: "ROI promedio en proyectos implementados"
+              }
+            ].map((b, index) => (
               <motion.div
-                key={tech.name}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                key={b.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1, duration: 0.5 }}
                 viewport={{ once: true }}
-                className="bg-[#0a0f0d] p-8 rounded-2xl border border-[#00ff88]/20 hover-glow transition-all group cursor-pointer"
+                className="bg-white p-8 rounded-2xl border-2 border-gray-200 hover:border-[#80b635] hover:shadow-xl transition-all text-center"
               >
-                <tech.icon className="w-12 h-12 mx-auto mb-4 text-[#00ff88] group-hover:scale-110 transition-transform" />
-                <h3 className="text-center font-semibold text-gray-200">{tech.name}</h3>
+                <div className="w-16 h-16 bg-[#80b635] rounded-xl flex items-center justify-center mx-auto mb-4 shadow-lg shadow-[#80b635]/20">
+                  <b.icon className="w-8 h-8 text-white" />
+                </div>
+
+                <div className="text-4xl font-bold text-[#80b635] mb-2">{b.value}</div>
+                <h3 className="text-xl font-semibold mb-2 text-[#05292e]">{b.title}</h3>
+                <p className="text-gray-600">{b.desc}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Process Section */}
+      {/* PROCESS */}
       <section className="py-20 px-6">
         <div className="max-w-7xl mx-auto">
+
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -152,10 +181,10 @@ export default function WhatWeDo() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-5xl font-bold mb-4">
-              Nuestro <span className="gradient-text">proceso</span>
+            <h2 className="text-3xl md:text-5xl font-bold mb-4 text-[#05292e]">
+              Nuestro <span className="text-[#80b635]">proceso</span>
             </h2>
-            <p className="text-xl text-gray-300">
+            <p className="text-xl text-gray-600">
               Metodología ágil enfocada en resultados medibles
             </p>
           </motion.div>
@@ -175,13 +204,14 @@ export default function WhatWeDo() {
                 viewport={{ once: true }}
                 className="relative"
               >
-                <div className="bg-[#121816] p-6 rounded-2xl border border-[#00ff88]/20 hover-glow transition-all">
-                  <div className="text-5xl font-bold gradient-text mb-3">{phase.step}</div>
-                  <h3 className="text-xl font-semibold mb-2 text-white">{phase.title}</h3>
-                  <p className="text-gray-400">{phase.desc}</p>
+                <div className="bg-white p-6 rounded-2xl border-2 border-gray-200 hover:border-[#80b635] hover:shadow-xl transition-all">
+                  <div className="text-5xl font-bold text-[#80b635] mb-3">{phase.step}</div>
+                  <h3 className="text-xl font-semibold mb-2 text-[#05292e]">{phase.title}</h3>
+                  <p className="text-gray-600">{phase.desc}</p>
                 </div>
+
                 {index < 3 && (
-                  <div className="hidden md:block absolute top-1/2 -right-3 w-6 h-0.5 bg-gradient-to-r from-[#00ff88] to-transparent" />
+                  <div className="hidden md:block absolute top-1/2 -right-3 w-6 h-0.5 bg-gradient-to-r from-[#80b635] to-transparent" />
                 )}
               </motion.div>
             ))}
