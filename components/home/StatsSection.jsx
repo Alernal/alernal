@@ -12,7 +12,7 @@ const stats = [
 
 export default function StatsSection() {
   return (
-    <section className="py-20 px-6 bg-[#121816]">
+    <section className="py-20 px-6 bg-white">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {stats.map((stat, index) => (
@@ -22,13 +22,17 @@ export default function StatsSection() {
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
               viewport={{ once: true }}
-              className="text-center"
+              className="text-center group"
             >
-              <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-[#00ff88] to-[#00ccff] rounded-xl flex items-center justify-center">
-                <stat.icon className="w-8 h-8 text-[#0a0f0d]" />
+              <div className="w-16 h-16 mx-auto mb-4 bg-[#80b635]/10 rounded-xl flex items-center justify-center border border-[#80b635]/20 group-hover:bg-[#80b635] transition-all">
+                <stat.icon className="w-8 h-8 text-[#80b635] group-hover:text-white transition-colors" />
               </div>
-              <div className="text-4xl font-bold gradient-text mb-2">{stat.value}</div>
-              <div className="text-gray-400">{stat.label}</div>
+
+              <div className="text-4xl font-bold text-[#05292e] mb-2">
+                {stat.value}
+              </div>
+
+              <div className="text-gray-600">{stat.label}</div>
             </motion.div>
           ))}
         </div>
